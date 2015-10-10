@@ -210,3 +210,5 @@ xcuserdata
 
 # React-Native specific stuff
 node_modules
+.idea/
+ios/Rubber.xcodeproj/project.xcworkspace/
