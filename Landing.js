@@ -9,6 +9,8 @@ var {
   Text,
   View,
   StyleSheet,
+  TouchableHighlight,
+  ActivityIndicatorIOS,
 } = React;
 
 var styles = StyleSheet.create({
@@ -19,12 +21,32 @@ var styles = StyleSheet.create({
     color: '#656565'
   },
   container: {
-    flex: 1,
+  	marginTop: 150,
     marginLeft: 10,
     marginRight: 10,
     alignItems: 'stretch',
     justifyContent: 'center',
   },
+  buttonText: {
+    fontSize: 18,
+    color: 'white',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 36,
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+  spinner: {
+  	alignSelf: 'center',
+  }
 });
 
 var Landing = React.createClass({
@@ -32,6 +54,7 @@ var Landing = React.createClass({
 	getInitialState: function () {
 		return {
 			price: 1,
+			loading: false,
 		}
 	},
 	handleSliderChange: function (value) {
@@ -39,20 +62,45 @@ var Landing = React.createClass({
 			price: Math.floor(value),
 		})
 	},
+	onButtonPressed: function () {
+		this.setState({
+			loading: true,
+		})
+	},
 	render: function () {
+		if (!this.state.loading) {
+			var button = (
+			<TouchableHighlight style={styles.button}
+			    underlayColor='#99d9f4'
+			    onPress={this.onButtonPressed}>
+			  <Text style={styles.buttonText}>Go</Text>
+			</TouchableHighlight> );
+			var slider = (
+			<Slider
+				value={this.state.price}
+				onValueChange={this.handleSliderChange}
+				minimumValue={1}
+				maximumValue={40}/>
+			)
+		} else {
+			var spinner = 
+			( <ActivityIndicatorIOS
+			    hidden='true'
+			    size='large'/> )
+		}
 		return (
 			<View style={styles.container}>
 				<Text style={styles.description}>
 					Need a rubber? We got you.
 				</Text>
-				<Slider
-					value={this.state.price}
-					onValueChange={this.handleSliderChange}
-					minimumValue={1}
-					maximumValue={40}/>
+				{slider}
 				<Text style={styles.description}>
 					Willing to pay ${this.state.price} for safe sex
 				</Text>
+					{button}
+				<View style={styles.spinner}>
+					{spinner}
+				</View>
 			</View>
 		);
 	}
