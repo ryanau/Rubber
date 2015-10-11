@@ -102,7 +102,7 @@ var Login = React.createClass({
         <TouchableHighlight style={styles.loginButton}
             underlayColor='#99d9f4'
             onPress={this.onLogInPressed}>
-          <Text style={styles.buttonText}>HAHAHA</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight> 
 
         <TouchableHighlight style={styles.signupButton}

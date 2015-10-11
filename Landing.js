@@ -48,4 +48,3 @@ var Landing = React.createClass({
 });
 
 module.exports = Landing;
-

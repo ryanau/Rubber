@@ -54,7 +54,7 @@ var styles = StyleSheet.create({
 
 });
 
-var Login = React.createClass({
+var Welcome = React.createClass({
   onLogInPressed: function () {
     this.props.navigator.push({
       title: 'Logging In',
@@ -93,4 +93,4 @@ var Login = React.createClass({
   },
 });
 
-module.exports = Login;
+module.exports = Welcome;
