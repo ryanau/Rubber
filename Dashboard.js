@@ -56,6 +56,8 @@ var Dashboard = React.createClass({
 		return {
 			price: 1,
 			loading: false,
+			location: '',
+			message: '',
 		}
 	},
 	observe: function() {
@@ -69,9 +71,14 @@ var Dashboard = React.createClass({
 		})
 	},
 	onButtonPressed: function () {
+		navigator.geolocation.getCurrentPosition(
+		  (location) => this.setState({location}),
+		  (error) => alert(error.message),
+		  {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+		);
 		this.setState({
 			loading: true,
-		})
+		});
 	},
 	render: function () {
 		if (!this.state.loading) {
@@ -94,7 +101,6 @@ var Dashboard = React.createClass({
 			    hidden='true'
 			    size='large'/> )
 		}
-		console.log(this.data.transactions)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.description}>
@@ -107,6 +113,10 @@ var Dashboard = React.createClass({
 					{button}
 				<View style={styles.spinner}>
 					{spinner}
+				<Text style={styles.description}>
+					{this.state.message}
+					{this.state.location}
+				</Text>
 				</View>
 			</View>
 		);

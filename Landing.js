@@ -26,13 +26,13 @@ var styles = StyleSheet.create({
 var Landing = React.createClass({
 	getInitialState: function () {
 		return {
-			loginedIn: false,
+			loginedIn: true,
 		}
 	},
 	render: function () {
 		if (this.state.loginedIn) {
 			var view = (
-				<Dashboard/>
+				<Dashboard navigator={this.props.navigator}/>
 			)
 		} else {
 			var view = (
