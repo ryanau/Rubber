@@ -51,12 +51,17 @@ var styles = StyleSheet.create({
 });
 
 var Dashboard = React.createClass({
-	// mixins: [ParseReact.Mixin],
+	mixins: [ParseReact.Mixin],
 	getInitialState: function () {
 		return {
 			price: 1,
 			loading: false,
 		}
+	},
+	observe: function() {
+	  return {
+	  	transactions: (new Parse.Query('Transaction')).ascending('createdAt')
+	  };
 	},
 	handleSliderChange: function (value) {
 		this.setState({
@@ -89,6 +94,7 @@ var Dashboard = React.createClass({
 			    hidden='true'
 			    size='large'/> )
 		}
+		console.log(this.data.transactions)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.description}>
