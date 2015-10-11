@@ -7,10 +7,10 @@ var ParseReact = require('parse-react');
 
 var Dashboard = require('./Dashboard');
 
-// var FBSDKLogin = require('react-native-fbsdklogin');
-// var {
-//   FBSDKLoginButton,
-// } = FBSDKLogin;
+var FBSDKLogin = require('react-native-fbsdklogin');
+var {
+  FBSDKLoginButton,
+} = FBSDKLogin;
 
 
 var {
@@ -57,21 +57,21 @@ var Login = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-        // <FBSDKLoginButton
-        //   onLoginFinished={(error, result) => {
-        //     if (error) {
-        //       alert('Error logging in.');
-        //     } else {
-        //       if (result.isCanceled) {
-        //         alert('Login cancelled.');
-        //       } else {
-        //         alert('Logged in.');
-        //       }
-        //     }
-        //   }}
-        //   onLogoutFinished={() => alert('Logged out.')}
-        //   readPermissions={[]}
-        //   publishPermissions={['publish_actions']}/>
+        <FBSDKLoginButton
+          onLoginFinished={(error, result) => {
+            if (error) {
+              alert('Error logging in.');
+            } else {
+              if (result.isCanceled) {
+                alert('Login cancelled.');
+              } else {
+                alert('Logged in.');
+              }
+            }
+          }}
+          onLogoutFinished={() => alert('Logged out.')}
+          readPermissions={[]}
+          publishPermissions={['publish_actions']}/>
       </View>
     );
   }
