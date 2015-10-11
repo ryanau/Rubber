@@ -56,7 +56,7 @@ var styles = StyleSheet.create({
 var Login = React.createClass({
   render: function() {
     return (
-      <View>
+      <View style={styles.container}>
         <FBSDKLoginButton
           onLoginFinished={(error, result) => {
             if (error) {
