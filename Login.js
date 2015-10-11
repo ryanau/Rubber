@@ -6,7 +6,6 @@ var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
 
 var Dashboard = require('./Dashboard');
-
 var {
   Text,
   View,
