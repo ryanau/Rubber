@@ -11,5 +11,7 @@
     "parse-react": "^0.4.2",
 		"react-native-slider": "^0.3.1",
     "dotenv": "1.2.0"
+    "react-native-fbsdklogin": "^0.0.5",
+    "react-native-fbsdkcore":"^0.0.5"
   }
 }
