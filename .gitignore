@@ -212,3 +212,4 @@ xcuserdata
 node_modules
 .idea/
 ios/Rubber.xcodeproj/project.xcworkspace/
+ios/main.jsbundle
