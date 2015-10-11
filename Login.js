@@ -7,12 +7,6 @@ var ParseReact = require('parse-react');
 
 var Dashboard = require('./Dashboard');
 
-var FBSDKLogin = require('react-native-fbsdklogin');
-var {
-  FBSDKLoginButton,
-} = FBSDKLogin;
-
-
 var {
   Text,
   View,
@@ -28,7 +22,7 @@ var styles = StyleSheet.create({
     color: '#656565'
   },
   container: {
-  	marginTop: 150,
+    marginTop: 150,
     marginLeft: 10,
     marginRight: 10,
     alignItems: 'stretch',
@@ -54,27 +48,26 @@ var styles = StyleSheet.create({
 });
 
 var Login = React.createClass({
-  render: function() {
+  onButtonPressed: function () {
+    this.props.navigator.push({
+      title: 'Dashboard',
+      component: Dashboard,
+    });
+  },
+  render: function () {
     return (
       <View style={styles.container}>
-        <FBSDKLoginButton
-          onLoginFinished={(error, result) => {
-            if (error) {
-              alert('Error logging in.');
-            } else {
-              if (result.isCanceled) {
-                alert('Login cancelled.');
-              } else {
-                alert('Logged in.');
-              }
-            }
-          }}
-          onLogoutFinished={() => alert('Logged out.')}
-          readPermissions={[]}
-          publishPermissions={['publish_actions']}/>
+        <Text style={styles.description}>
+          Login Page
+        </Text>
+        <TouchableHighlight style={styles.button}
+            underlayColor='#99d9f4'
+            onPress={this.onButtonPressed}>
+          <Text style={styles.buttonText}>Log In via Facebook</Text>
+        </TouchableHighlight> 
       </View>
-    );
-  }
+    )
+  },
 });
 
 module.exports = Login;
