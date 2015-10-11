@@ -6,7 +6,7 @@ var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
 
 var Dashboard = require('./Dashboard');
-var Login = require('./Login');
+var Welcome = require('./Welcome');
 
 var {
   View,
@@ -36,7 +36,7 @@ var Landing = React.createClass({
 			)
 		} else {
 			var view = (
-				<Login navigator={this.props.navigator}/>
+				<Welcome navigator={this.props.navigator}/>
 			)
 		}
 		return (

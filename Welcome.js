@@ -5,10 +5,6 @@ var Slider = require('react-native-slider');
 var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
 
-var Login = require('./Login');
-var Signup = require('./Signup');
-
-
 
 var {
   Text,
@@ -36,7 +32,7 @@ var styles = StyleSheet.create({
     color: 'white',
     alignSelf: 'center'
   },
-  loginButton: {
+  Push: {
     height: 36,
     flex: 1,
     flexDirection: 'row',
@@ -52,25 +48,6 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 15,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-   signupButton: {
-    height: 36,
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    shadowColor: "grey",
-    shadowOpacity: 1,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 2,
-      width: 2
-    },
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
@@ -102,7 +79,7 @@ var Login = React.createClass({
         <TouchableHighlight style={styles.loginButton}
             underlayColor='#99d9f4'
             onPress={this.onLogInPressed}>
-          <Text style={styles.buttonText}>HAHAHA</Text>
+          <Text style={styles.buttonText}>Log In</Text>
         </TouchableHighlight> 
 
         <TouchableHighlight style={styles.signupButton}
